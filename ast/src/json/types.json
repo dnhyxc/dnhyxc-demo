@@ -1,0 +1,149 @@
+{
+  "identifierNode": { "type": "Identifier", "name": "nodeName" },
+  "stringLiteralNode": { "type": "StringLiteral", "value": "Hello, World!" },
+  "numericLiteralNode": { "type": "NumericLiteral", "value": 902 },
+  "booleanLiteralNode": { "type": "BooleanLiteral", "value": true },
+  "nullLiteralNode": { "type": "NullLiteral" },
+  "arrayExpressionNode": {
+    "type": "ArrayExpression",
+    "elements": [
+      { "type": "StringLiteral", "value": "dnhyxc" },
+      { "type": "NumericLiteral", "value": 18 },
+      { "type": "BooleanLiteral", "value": true },
+      {
+        "type": "ObjectExpression",
+        "properties": [
+          {
+            "type": "ObjectProperty",
+            "key": { "type": "Identifier", "name": "name" },
+            "value": { "type": "StringLiteral", "value": "dnhyxc" },
+            "computed": false,
+            "shorthand": false,
+            "decorators": null
+          },
+          {
+            "type": "ObjectProperty",
+            "key": { "type": "Identifier", "name": "age" },
+            "value": { "type": "NumericLiteral", "value": 18 },
+            "computed": false,
+            "shorthand": false,
+            "decorators": null
+          }
+        ]
+      },
+      { "type": "Identifier", "name": "y" },
+      { "type": "Identifier", "name": "x" },
+      { "type": "Identifier", "name": "c" }
+    ]
+  },
+  "arrayPatternNode": {
+    "type": "ArrayPattern",
+    "elements": [
+      { "type": "Identifier", "name": "y" },
+      { "type": "Identifier", "name": "x" },
+      { "type": "Identifier", "name": "c" }
+    ]
+  },
+  "objectPropertyNode": {
+    "type": "ObjectProperty",
+    "key": { "type": "Identifier", "name": "name" },
+    "value": { "type": "StringLiteral", "value": "dnhyxc" },
+    "computed": false,
+    "shorthand": false,
+    "decorators": null
+  },
+  "objectExpressionNode": {
+    "type": "ObjectExpression",
+    "properties": [
+      {
+        "type": "ObjectProperty",
+        "key": { "type": "Identifier", "name": "name" },
+        "value": { "type": "StringLiteral", "value": "dnhyxc" },
+        "computed": false,
+        "shorthand": false,
+        "decorators": null
+      },
+      {
+        "type": "ObjectProperty",
+        "key": { "type": "Identifier", "name": "age" },
+        "value": { "type": "NumericLiteral", "value": 18 },
+        "computed": false,
+        "shorthand": false,
+        "decorators": null
+      }
+    ]
+  },
+  "printUsernameFunction": {
+    "type": "FunctionExpression",
+    "id": { "type": "Identifier", "name": "myFunction" },
+    "params": [{ "type": "Identifier", "name": "username" }],
+    "body": {
+      "type": "BlockStatement",
+      "body": [
+        {
+          "type": "ExpressionStatement",
+          "expression": {
+            "type": "CallExpression",
+            "callee": {
+              "type": "MemberExpression",
+              "object": { "type": "Identifier", "name": "console" },
+              "property": { "type": "Identifier", "name": "log" },
+              "computed": false,
+              "optional": null
+            },
+            "arguments": [{ "type": "Identifier", "name": "username" }]
+          }
+        }
+      ],
+      "directives": []
+    },
+    "generator": false,
+    "async": false
+  },
+  "printUsernameNoNameFunction": {
+    "type": "FunctionExpression",
+    "id": null,
+    "params": [{ "type": "Identifier", "name": "username" }],
+    "body": {
+      "type": "BlockStatement",
+      "body": [
+        {
+          "type": "ExpressionStatement",
+          "expression": {
+            "type": "CallExpression",
+            "callee": {
+              "type": "MemberExpression",
+              "object": { "type": "Identifier", "name": "console" },
+              "property": { "type": "Identifier", "name": "log" },
+              "computed": false,
+              "optional": null
+            },
+            "arguments": [{ "type": "Identifier", "name": "username" }]
+          }
+        }
+      ],
+      "directives": []
+    },
+    "generator": false,
+    "async": false
+  },
+  "callExpressionNode": {
+    "type": "CallExpression",
+    "callee": { "type": "Identifier", "name": "myFunction" },
+    "arguments": [
+      { "type": "StringLiteral", "value": "count" },
+      { "type": "NumericLiteral", "value": 12 }
+    ]
+  },
+  "expressionStatementNode": {
+    "type": "ExpressionStatement",
+    "expression": {
+      "type": "CallExpression",
+      "callee": { "type": "Identifier", "name": "myFunction" },
+      "arguments": [
+        { "type": "StringLiteral", "value": "count" },
+        { "type": "NumericLiteral", "value": 12 }
+      ]
+    }
+  }
+}
