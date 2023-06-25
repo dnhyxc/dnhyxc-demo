@@ -3,19 +3,16 @@ const nodePath = require("path");
 const parser = require("@babel/parser");
 const traverse = require("@babel/traverse").default;
 const generator = require("@babel/generator").default;
+const types = require("@babel/types");
 
-const createModifiedCodeLog = (data) => {
-  fs.writeFileSync(
-    nodePath.join(__dirname, "js/modifiedCode.js"),
-    data,
-    (err) => {
-      if (err) {
-        throw err;
-      } else {
-        console.log("写入成功");
-      }
+const createModifiedCodeLog = (data, path = "js/modifiedCode.js") => {
+  fs.writeFileSync(nodePath.join(__dirname, path), data, (err) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("写入成功");
     }
-  );
+  });
 };
 
 // 源代码字符串（包含注释）
@@ -44,6 +41,13 @@ const ast = parser.parse(code);
 const visitor = {
   enter(path) {
     const { node } = path;
+    if (types.isFunctionDeclaration(node)) {
+      const cloneNode = types.cloneNode(node);
+      // 可以在这里对克隆的节点进行其他操作
+      console.log(cloneNode, "cloneNode");
+      const { code: modifiedCode } = generator(cloneNode);
+      createModifiedCodeLog(modifiedCode, "/js/clone.js");
+    }
     // 删除注释
     if (node.leadingComments || node.trailingComments) {
       // if (node.leadingComments || node.trailingComments || node.innerComments) { // {/* react 注释 */}
