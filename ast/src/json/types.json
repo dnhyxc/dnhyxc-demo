@@ -1,5 +1,5 @@
 {
-  "identifierNode": { "type": "Identifier", "name": "nodeName" },
+  "identifierNode": { "type": "Identifier", "name": "undefined" },
   "stringLiteralNode": { "type": "StringLiteral", "value": "Hello, World!" },
   "numericLiteralNode": { "type": "NumericLiteral", "value": 902 },
   "booleanLiteralNode": { "type": "BooleanLiteral", "value": true },
@@ -127,6 +127,51 @@
     "generator": false,
     "async": false
   },
+  "functionExpression": {
+    "type": "FunctionExpression",
+    "id": { "type": "Identifier", "name": "myFunction" },
+    "params": [{ "type": "Identifier", "name": "username" }],
+    "body": {
+      "type": "BlockStatement",
+      "body": [
+        {
+          "type": "ExpressionStatement",
+          "expression": {
+            "type": "AssignmentExpression",
+            "operator": "=",
+            "left": { "type": "Identifier", "name": "count" },
+            "right": {
+              "type": "BinaryExpression",
+              "operator": "+",
+              "left": { "type": "NumericLiteral", "value": 2 },
+              "right": { "type": "NumericLiteral", "value": 9 }
+            }
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "expression": {
+            "type": "CallExpression",
+            "callee": {
+              "type": "MemberExpression",
+              "object": { "type": "Identifier", "name": "console" },
+              "property": { "type": "Identifier", "name": "log" },
+              "computed": false,
+              "optional": null
+            },
+            "arguments": [{ "type": "Identifier", "name": "username" }]
+          }
+        },
+        {
+          "type": "ReturnStatement",
+          "argument": { "type": "Identifier", "name": "count" }
+        }
+      ],
+      "directives": []
+    },
+    "generator": false,
+    "async": false
+  },
   "callExpressionNode": {
     "type": "CallExpression",
     "callee": { "type": "Identifier", "name": "myFunction" },
@@ -145,5 +190,38 @@
         { "type": "NumericLiteral", "value": 12 }
       ]
     }
+  },
+  "declarationVarNode": {
+    "type": "VariableDeclaration",
+    "kind": "var",
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "id": { "type": "Identifier", "name": "myVariable" },
+        "init": { "type": "NumericLiteral", "value": 29 }
+      }
+    ]
+  },
+  "declarationLetNode": {
+    "type": "VariableDeclaration",
+    "kind": "let",
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "id": { "type": "Identifier", "name": "myVariable" },
+        "init": { "type": "NumericLiteral", "value": 29 }
+      }
+    ]
+  },
+  "declarationConstNode": {
+    "type": "VariableDeclaration",
+    "kind": "const",
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "id": { "type": "Identifier", "name": "myVariable" },
+        "init": { "type": "NumericLiteral", "value": 29 }
+      }
+    ]
   }
 }

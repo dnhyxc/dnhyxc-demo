@@ -44,7 +44,6 @@ const visitor = {
     if (types.isFunctionDeclaration(node)) {
       const cloneNode = types.cloneNode(node);
       // 可以在这里对克隆的节点进行其他操作
-      console.log(cloneNode, "cloneNode");
       const { code: modifiedCode } = generator(cloneNode);
       createModifiedCodeLog(modifiedCode, "/js/clone.js");
     }
@@ -64,3 +63,73 @@ traverse(ast, visitor);
 const { code: modifiedCode } = generator(ast);
 
 createModifiedCodeLog(modifiedCode);
+
+// 解析源代码为 AST
+function parseSourceCode(sourceCode) {
+  return parser.parse(sourceCode, {
+    sourceType: "module",
+  });
+}
+
+// 创建单行注释的 AST 节点
+function createSingleLineComment(commentText) {
+  return {
+    type: "CommentLine",
+    value: ` ${commentText}`,
+    start: null,
+    end: null,
+    loc: null,
+  };
+}
+
+// 创建多行注释的 AST 节点
+function createMultiLineComment(commentText) {
+  return {
+    type: "CommentBlock",
+    value: ` \n${commentText}\n`,
+    start: null,
+    end: null,
+    loc: null,
+  };
+}
+
+// 在指定的节点之前添加注释
+function addCommentBeforeNode(node, comment) {
+  node.leadingComments = node.leadingComments || [];
+  node.leadingComments.push(comment);
+}
+
+// 将源代码转换回字符串
+function generateCode(ast) {
+  return generator(ast).code;
+}
+
+// 用于将源代码转换为 AST 的函数
+function transformSourceCode(sourceCode, commentText, createType) {
+  // 解析源代码为 AST
+  const ast = parseSourceCode(sourceCode);
+  // 在指定的节点之前添加单行注释
+  const nodeToComment = ast; // 用于演示的示例节点
+  // 创建注释的 AST 节点
+  const comment =
+    createType === "single"
+      ? createSingleLineComment(commentText)
+      : createMultiLineComment(commentText);
+
+  console.log(comment, "comment");
+
+  // 在指定的节点之前添加注释
+  addCommentBeforeNode(nodeToComment, comment);
+
+  // 将 AST 转换回代码字符串
+  const transformedCode = generateCode(ast);
+  console.log(transformedCode);
+  createModifiedCodeLog(transformedCode, "/js/comment.js");
+}
+
+// 示例调用
+// const commentText = "这是一个新加的单行注释";
+// transformSourceCode(code, commentText, "single");
+
+const multiCommenttext = "这是一个多行注释\n它跨越了多个行\n真是够长的";
+transformSourceCode(code, multiCommenttext, "multi");

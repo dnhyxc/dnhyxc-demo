@@ -1,0 +1,23 @@
+{
+  "node1": true,
+  "node2": false,
+  "number": true,
+  "identifier": false,
+  "string": true,
+  "boolean": true,
+  "nnull": true,
+  "binary": false,
+  "arrayExpressionNode": false,
+  "isNumericLiteral": true,
+  "notNumericLiteral": false,
+  "isStringLiteral": true,
+  "isTplStringLiteral": true,
+  "notStringLiteral": false,
+  "isArrayPattern": true,
+  "isArrayExpressionNode": false,
+  "isTrueBooleanLiteral": true,
+  "isFalseBooleanLiteral": true,
+  "isObjectExpression": true,
+  "notObjectExpression": true,
+  "notFunctionDeclaration": false
+}
