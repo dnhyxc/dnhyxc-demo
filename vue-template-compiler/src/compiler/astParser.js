@@ -61,8 +61,7 @@ function parseHtmIToAst(html) {
 
       while (
         !(end = html.match(startTagClose)) &&
-        // TODO
-        (attr = html.match(attribute)[1])
+        (attr = html.match(attribute))
       ) {
         // 如果没有匹配到结束标签，同时匹配到了标签属性则将属性push到属性列表中
         match.attrs.push({
