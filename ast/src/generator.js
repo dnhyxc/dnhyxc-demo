@@ -38,6 +38,14 @@ const output = generator(
   }
 );
 
+const testAst = parser.parse(sourceCode1, {
+  plugins: ["typescript"],
+});
+
+const testOutput = generator(testAst, {}, sourceCode1);
+
+console.log(testOutput, "testAst");
+
 const createModifiedCodeLog = (data, path = "json/generator.json") => {
   fs.writeFileSync(nodePath.join(__dirname, path), data, (err) => {
     if (err) {
